@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 // const axios = require('axios');
 
-const {getCards,getCardById} = require('./Card/CardRoutes')
+const {getCards,getCardById} = require('./Card/CardRoutes.ts')
 const {getSets,getSetById} = require('./Set/SetRoutes')
 const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRoutes')
 
