@@ -19,5 +19,5 @@ async function mintNFT(collectionId, recipientAddress, metadataURI) {
 }
 
 // Call the mint function
-mintNFT("0" ,'0x875675345E7aaF3228EF68014C86c51121A74962', 'http://localhost:3030/getCard/mcd19-3');
-
+mintNFT("0" ,'0x875675345E7aaF3228EF68014C86c51121A74962', 'mcd19-3');
+// 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
