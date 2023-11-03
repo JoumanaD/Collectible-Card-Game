@@ -24,7 +24,7 @@ function PokemonCard() {
       <h1>Pokemon Cards</h1>
       <ul className="pokemon-card-grid">
         {cards.map(card => (
-          <li key={card.id} className="pokemon-card">
+          <li key={card.id} className="pokemon-card animated">
             <img src={card.image} alt={card.number} />
           </li>
         ))}
