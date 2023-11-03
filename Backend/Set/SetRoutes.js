@@ -33,8 +33,22 @@ const getSetById = async (req, res) => {
 };
 
 
+// PAS ENCORE
+const getSetCards = async (req, res) => {
+    try {
+        
+        res.json(data);
+
+    } catch (err) {
+        console.error('Erreur lors de la récupération du getSetCards by id : ', err);
+        res.send(err)
+    }
+};
+
+
 module.exports = {
     getSets,
-    getSetById
+    getSetById,
+    getSetCards
 };
 

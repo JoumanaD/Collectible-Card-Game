@@ -10,21 +10,22 @@ const contract = require("../artifacts/src/Main.sol/Main.json");
 const contractABI = contract.abi; // Your contract's ABI
 const nftContract = new ethers.Contract(contractAddress, contractABI, wallet);
 const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
-
+//0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 
 const getNFTsOfOwner = async ()=> {
     const balance = await nftContract.balanceOf(ownerAddress); //Returns the number of tokens owned by the address
     
-    let tokenIds = [];
+    let tokens = [];
   
     for(let i = 0; i < balance.length; i++) {
         for(let j = 0;j<balance[i];j++){
             const tokenId = await nftContract.tokenOfOwnerByIndex(i, ownerAddress, j); //Get the token ID based on the index from the balanceOf call
-            tokenIds.push(tokenId.toString());
+            const tokenURI = await nftContract.tokenURI(i, tokenId);
+            tokens.push({tokenId: tokenId.toString(), tokenURI: tokenURI});
         }
     }
   
-    console.log(`Token IDs owned by ${ownerAddress}: ${tokenIds}`);
+    console.log(tokens);
   }
 
 getNFTsOfOwner();

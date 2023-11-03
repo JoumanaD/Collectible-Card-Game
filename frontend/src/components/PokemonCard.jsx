@@ -7,7 +7,6 @@ function PokemonCard() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    console.log("test")
     axios.get('http://localhost:3030/getCards')
       .then(response => {
         console.log(response)
@@ -21,9 +20,9 @@ function PokemonCard() {
   
   return (
   
-    <div>
+    <div className="pokemon-card-div">
       <h1>Pokemon Cards</h1>
-      <ul >
+      <ul className="pokemon-card-grid">
         {cards.map(card => (
           <li key={card.id} className="pokemon-card">
             <img src={card.image} alt={card.number} />

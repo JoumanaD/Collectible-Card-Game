@@ -1,15 +1,36 @@
+.pokemon-card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0px, 210px)); /* Adjust the column width as needed */
+  row-gap: 20px;  /* Adjust the gap between items */
+  column-gap: 60px;
+  padding: 0px;
+  margin: 0 auto;
+  justify-content:center;
+  align-items: center;
+}
+
+.pokemon-card-div{
+  width: 100%;
+}
+
+#root{
+  background-image: url('/src/photos/stadium-background.jpg');
+  background-size: cover; /* Scales the image as large as possible without stretching */
+  background-attachment: fixed;
+}
+
 .pokemon-card {
     border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
     text-align: center;
     background-color: #f0f0f0;
+    font-size: 0px;
 
-    width: 71.5vw;
-   
+    width: 15%;
+    min-width: 260px;
+    max-height:fit-content;
+
     position: relative;
-    overflow: hidden;
-    margin: 20px;
+
     overflow: hidden;
     z-index: 10;
     touch-action: none;
@@ -26,7 +47,6 @@
     transition: transform 0.5s ease, box-shadow 0.2s ease;
     will-change: transform, filter;
 
-    background-color: #040712;
     background-image: var(--front);
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,6 +57,8 @@
   .pokemon-card img {
     max-width: 100%;
     height: auto;
+    user-select: none;
+    cursor: pointer;
   }
 
 .pokemon-card:hover{
@@ -49,8 +71,10 @@
     -7px -7px 10px -5px var(--color1), 
     7px 7px 10px -5px var(--color2), 
     0 0 13px 4px rgba(255,255,255,0.3),
-    0 55px 35px -20px rgba(0, 0, 0, 0.5);
+    0 55px 35px -20px rgba(255, 0, 0, 0.5);
 }
+
+
 
 .pokemon-card.animated {
     transition: none;

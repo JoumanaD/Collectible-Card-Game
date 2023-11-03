@@ -18,6 +18,7 @@ contract Main is Ownable {
   function createCollection(string calldata name, int cardCount) external onlyOwner {
     address initialOwner = address(this);
     collections[count++] = new Collection(initialOwner, name, cardCount);
+    console.log("Nouvelle collection:",address(collections[count-1]));
   }
 
   function mintCard(int collectionId, address recipient, string memory tokenURI)
@@ -35,6 +36,8 @@ contract Main is Ownable {
   function getOwners() public view returns(address[] memory){
     return owners;
   }
+
+  // returns an array of the balance of an account in each collection
   function balanceOf(address owner) public view returns(uint[] memory){
     uint [] memory res = new uint[](uint(count));
     for(int i =0;i<count;i++){
@@ -49,4 +52,9 @@ contract Main is Ownable {
     return collections[collectionId].tokenOfOwnerByIndex(owner, i);
   }
 
+  function tokenURI(int collectionId, uint i)
+    external view
+    returns(string memory){
+      return collections[collectionId].tokenURI(i);
+    }
 }
