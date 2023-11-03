@@ -1,15 +1,15 @@
 const express = require('express');
 const app = express();
-// const axios = require('axios');
 
-const {getCards,getCardById} = require('./Card/CardRoutes.ts')
+const {getCards,getCardById, getUserCards} = require('./Card/CardRoutes')
 const {getSets,getSetById} = require('./Set/SetRoutes')
 const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRoutes')
 
 
 // Card Routes
 app.get('/getCards', getCards);
-app.get('/getCard/:id', getCardById);
+app.get('/getCard/:id', getCardById); 
+// app.get('/getUserCards/:id', getUserCards);
 
 // Set Routes
 app.get('/getSets', getSets);
