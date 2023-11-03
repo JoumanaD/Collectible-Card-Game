@@ -3,6 +3,7 @@ pragma solidity ^0.8;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Collection.sol";
+import "hardhat/console.sol";
 
 contract Main is Ownable {
   int private count;
@@ -34,4 +35,18 @@ contract Main is Ownable {
   function getOwners() public view returns(address[] memory){
     return owners;
   }
+  function balanceOf(address owner) public view returns(uint[] memory){
+    uint [] memory res = new uint[](uint(count));
+    for(int i =0;i<count;i++){
+      res[uint(i)]= collections[i].balanceOf(owner);
+    }
+    return res;
+  }
+
+  function tokenOfOwnerByIndex(int collectionId, address owner, uint i)
+    external view
+    returns(uint256){
+    return collections[collectionId].tokenOfOwnerByIndex(owner, i);
+  }
+
 }
