@@ -13,28 +13,25 @@ const wallet = new ethers.Wallet('0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed
 
 // Load your NFT smart contract (replace with your contract address and ABI)
 const contractAddress = '0x5fbdb2315678afecb367f032d93f642f64180aa3';
-const contract = require("../artifacts/src/Main.sol/Main.json");
+const contract = require("../../contracts/artifacts/src/Main.sol/Main.json");
 const contractABI = contract.abi; // Your contract's ABI
 const nftContract = new ethers.Contract(contractAddress, contractABI, wallet);
 
-// Mint a new NFT
 async function getOwners() {
   
   const tx = await nftContract.getOwners();
   //await tx.wait(); // Wait for the transaction to be confirmed
-  console.log(tx);
+  console.log("--- Users : ",tx);
   return tx;
 }
 
-// Call the mint function
-getOwners();
-
-//------------------------------------------
+//------------------------------------------ getUsers
 
 
 const getUsers = async (req, res) => {
     try {
         
+        console.log("Get USERS Route");
         const users = getOwners();        
         res.json(users);
 
@@ -46,7 +43,49 @@ const getUsers = async (req, res) => {
 };
 
 
+//------------------------------------------ getUserNFTs
+const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
+
+//modif -> je passe ownerAddress en param et je commente la ligne en dessus
+async function getNFTsOfOwner() {
+
+    const balance = await nftContract.balanceOf(ownerAddress); //Returns the number of tokens owned by the address
+    let tokenIds = [];
+    
+    for(let i = 0; i < balance.length; i++) {
+        for(let j = 0;j<balance[i];j++){
+            const tokenId = await nftContract.tokenOfOwnerByIndex(i, ownerAddress, j); //Get the token ID based on the index from the balanceOf call
+            tokenIds.push(tokenId.toString());
+        }
+    }
+    
+    console.log(`Token IDs owned by ${ownerAddress}: ${tokenIds}`);
+    return tokenIds;
+}
+
+const getUserNFTs = async (req, res) => {
+    try {
+        
+        console.log("Get UserNFTs Route");
+        const id = req.params.id;
+        console.log("User ID : ",id);
+
+        //modif -> je passe id(adress) en param de la function getNFTsOfOwner()
+
+        const userNFTs = getNFTsOfOwner();        
+        res.json(userNFTs);
+
+    } catch (err) {
+        console.error('Erreur lors de la récupération des UserNFTs', err); 
+        res.send(err)
+    }
+};
+
+
+
+
 
 module.exports = {
-    getUsers
+    getUsers,
+    getUserNFTs
 };

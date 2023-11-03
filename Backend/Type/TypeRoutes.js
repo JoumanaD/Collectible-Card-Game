@@ -1,8 +1,7 @@
-// const axios = require('axios');
-// import { Request, Response } from 'express';
+const axios = require('axios');
 
 
-exports.getTypes = async (req, res) => {
+const getTypes = async (req, res) => {
     try {
 
         const response = await axios.get('https://api.pokemontcg.io/v2/types');
@@ -17,7 +16,7 @@ exports.getTypes = async (req, res) => {
 };
 
 
-exports.getSubTypes = async (req, res) => {
+const getSubTypes = async (req, res) => {
     try {
 
         const response = await axios.get('https://api.pokemontcg.io/v2/subtypes');
@@ -32,7 +31,7 @@ exports.getSubTypes = async (req, res) => {
 };
 
 
-exports.getSuperTypes = async (req, res) => {
+const getSuperTypes = async (req, res) => {
     try {
 
         const response = await axios.get('https://api.pokemontcg.io/v2/supertypes');
@@ -46,7 +45,7 @@ exports.getSuperTypes = async (req, res) => {
     }
 };
 
-exports.getRarities = async (req, res) => {
+const getRarities = async (req, res) => {
     try {
 
         const response = await axios.get('https://api.pokemontcg.io/v2/rarities');
@@ -61,4 +60,10 @@ exports.getRarities = async (req, res) => {
 };
 
 
+module.exports = {
+    getTypes,
+    getSubTypes,
+    getSuperTypes,
+    getRarities
+};
 

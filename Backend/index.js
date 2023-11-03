@@ -5,7 +5,7 @@ const app = express();
 const {getCards,getCardById, getUserCards} = require('./Card/CardRoutes')
 const {getSets,getSetById} = require('./Set/SetRoutes')
 const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRoutes')
-const {getUsers} = require('./User/UserRoutes')
+const {getUsers,getUserNFTs} = require('./User/UserRoutes')
 
 app.use(cors());
 
@@ -27,6 +27,7 @@ app.get('/getRarities', getRarities);
 
 // User Routes
 app.get('/getUsers', getUsers);
+app.get('/getUserNFTs', getUserNFTs);
 
 
 
@@ -35,13 +36,14 @@ var port = process.env.PORT || 3030 ;
 app.listen(port, console.log(`Server is listening on port ${port}`) )
 
 
-// ----------         getNFTsOfOwner();
-// owneradress - adress UEr 
-// getNFTsOfOwner(owneradress) => ses NFTs dans des objets {{ tokenId: '1', tokenURI: 'http://localhost:3030/getCard/mcd19-3' },}
+// (*********)----------         getNFTsOfOwner();
+// (*********)owneradress - adress UEr 
+// (*********)getNFTsOfOwner(owneradress) => ses NFTs dans des objets {{ tokenId: '1', tokenURI: 'http://localhost:3030/getCard/mcd19-3' },}
 
-// -----------           getOwners();
-// lise des users
+// (*********) -----------           getOwners();
+// (*********)lise des users 
 
 //---- à faire
 // Minter arbitrairement // je recois du front une liste[idCard] & adressUser ==> call function  mint.js n fois.
 
+//obtenir les images qui appartiennent a un certain set depuis l'api 

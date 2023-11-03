@@ -1,8 +1,7 @@
-// const axios = require('axios');
-// import { Request, Response } from 'express';
+const axios = require('axios');
 
 
-exports.getSets = async (req, res) => {
+const getSets = async (req, res) => {
     try {
 
         const response = await axios.get('https://api.pokemontcg.io/v2/sets');
@@ -16,7 +15,7 @@ exports.getSets = async (req, res) => {
     }
 };
 
-exports.getSetById = async (req, res) => {
+const getSetById = async (req, res) => {
     try {
         const id = req.params.id;
 
@@ -34,4 +33,8 @@ exports.getSetById = async (req, res) => {
 };
 
 
-// module.exports = router;
+module.exports = {
+    getSets,
+    getSetById
+};
+
