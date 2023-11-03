@@ -1,0 +1,66 @@
+.pokemon-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    background-color: #f0f0f0;
+
+    width: 71.5vw;
+   
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    overflow: hidden;
+    z-index: 10;
+    touch-action: none;
+    
+    border-radius: 5% / 3.5%;
+    box-shadow: 
+    -5px -5px 5px -5px var(--color1), 
+    5px 5px 5px -5px var(--color2), 
+    -7px -7px 10px -5px transparent, 
+    7px 7px 10px -5px transparent, 
+    0 0 5px 0px rgba(255,255,255,0),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+    transition: transform 0.5s ease, box-shadow 0.2s ease;
+    will-change: transform, filter;
+
+    background-color: #040712;
+    background-image: var(--front);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+  }
+  
+  .pokemon-card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+.pokemon-card:hover{
+    transform: scale(1,1);
+    box-shadow: 0px 0px 15px 0px;
+
+    box-shadow: 
+    -20px -20px 30px -25px var(--color1), 
+    20px 20px 30px -25px var(--color2), 
+    -7px -7px 10px -5px var(--color1), 
+    7px 7px 10px -5px var(--color2), 
+    0 0 13px 4px rgba(255,255,255,0.3),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
+}
+
+.pokemon-card.animated {
+    transition: none;
+  animation: holoCard 12s ease 0s 1;
+  &:before { 
+    transition: none;
+    animation: holoGradient 12s ease 0s 1;
+  }
+  &:after {
+    transition: none;
+    animation: holoSparkle 12s ease 0s 1;
+  }
+}

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 
 const {getCards,getCardById, getUserCards} = require('./Card/CardRoutes')
@@ -6,6 +7,7 @@ const {getSets,getSetById} = require('./Set/SetRoutes')
 const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRoutes')
 const {getUsers} = require('./User/UserRoutes')
 
+app.use(cors());
 
 
 // Card RoutesCard
