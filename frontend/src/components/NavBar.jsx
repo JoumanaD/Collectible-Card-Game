@@ -3,10 +3,10 @@ import '../styles.css';
 
 function NavBar() {
   return (
-    <div className="navbar">
-      <Link to="/">Home</Link>
-      <Link to="/pokemonCards">Pokemon Cards</Link>
-      <Link to="/user">Profile</Link>
+    <div className="navigation">
+      <Link className="brand-name" to="/">Home</Link>
+      <Link className="brand-name" to="/pokemonCards">Pokemon Cards</Link>
+      <Link className="brand-name" to="/user">Profile</Link>
     </div>
   );
 }
