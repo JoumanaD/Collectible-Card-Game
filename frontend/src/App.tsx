@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import * as ethereum from '@/lib/ethereum'
 import * as main from '@/lib/main'
+import HomePage from './components/HomePage'
+import PokemonCard from './components/PokemonCard'
 
 type Canceler = () => void
 const useAffect = (
@@ -40,10 +42,26 @@ const useWallet = () => {
 }
 
 export const App = () => {
+
   const wallet = useWallet()
   return (
     <div className={styles.body}>
+      <HomePage />
+      {/*
       <h1>Welcome to Pokémon TCG</h1>
+      <div className="pokemon-card-container">
+        {pokemonData.map((pokemon, index) => (
+          <PokemonCard
+            key={index}
+            name={pokemon.name}
+            image={pokemon.image}
+            type={pokemon.type}
+            description={pokemon.description}
+          />
+        ))}
+      </div>
+      */}
+      
     </div>
-  )
+  );
 }
