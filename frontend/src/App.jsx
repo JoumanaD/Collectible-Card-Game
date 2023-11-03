@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import * as ethereum from '@/lib/ethereum'
 import * as main from '@/lib/main'
 import HomePage from './components/HomePage'
 import PokemonCard from './components/PokemonCard'
 import UserPage from './components/UserPage'
 import NavBar from './components/NavBar'
-import SearchBar from './components/SearchBar'
 
 const useAffect = (asyncEffect, dependencies = []) => {
   const cancelerRef = useRef();
@@ -45,11 +44,12 @@ export const App = () => {
   const wallet = useWallet()
   return (
     <>
-      <NavBar />
+    
+    <NavBar />
       <Routes>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/pokemonCards" component={PokemonCard} />
-        <Route path="/user" component={UserPage} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/pokemonCards" element={<PokemonCard />} />
+          <Route path="/user" element={<UserPage />} />
       </Routes>
     </>
     
