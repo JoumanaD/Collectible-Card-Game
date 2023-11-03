@@ -1,14 +1,16 @@
 import "../Card.css"
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
 function PokemonCard() {
 
-  cconst [cards, setCards] = useState([]);
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     console.log("test")
     axios.get('http://localhost:3030/getCards')
       .then(response => {
-        console.log(response.data)
+        console.log(response)
         setCards(response.data);
       })
       .catch(error => {
@@ -31,7 +33,6 @@ function PokemonCard() {
     </div>
   );
 }
-import { useEffect, useState } from "react";
 
 export default PokemonCard;
 
