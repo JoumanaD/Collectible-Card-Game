@@ -9,7 +9,7 @@ function SearchBar() {
         type="text"
         placeholder="Search..."
       />
-      <button >Search</button>
+      <button>Search</button>
     </div>
   );
 }

@@ -49,3 +49,7 @@
     border: none;
     cursor: pointer;
   }
+
+  .boxBackground {
+    background-image: url('/src/photos/background.jpg');
+  }
