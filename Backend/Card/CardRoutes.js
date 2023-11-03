@@ -59,26 +59,22 @@ const getCardById = async (req, res) => {
     }
 };
 
+const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
+
 const getUserCards = async (req, res) => {
     try {
+        console.log("LEOOO-DEBUT");
+        const nfts = await getNFTsOfOwner(ownerAddress); // Assuming getNFTsOfOwner is an async function
 
-        getNFTsOfOwner();
+        console.log("LEOOO- FUNCTION : "+ nfts);;
+        console.log("LEOOO-FIN");
+
     
     } catch (err) {
         console.error('Erreur lors de la récupération des Cards', err); 
         res.send(err)
     }
 };
-
-// ----------         getNFTsOfOwner();
-// owneradress - adress UEr 
-// getNFTsOfOwner(owneradress) => ses NFTs dans des objets {{ tokenId: '1', tokenURI: 'http://localhost:3030/getCard/mcd19-3' },}
-
-// -----------           getOwners();
-// lise des users
-
-//---- à faire
-// Minter arbitrairement // je recois du front une liste[idCard] & adressUser ==> call function  mint.js n fois.
 
 module.exports = {
     getCards,

@@ -5,7 +5,7 @@ import * as main from '@/lib/main'
 
 type Canceler = () => void
 const useAffect = (
-  asyncEffect: () => Promise<Canceler | void>,
+  asyncEffect: () => Promise<Can  celer | void>,
   dependencies: any[] = []
 ) => {
   const cancelerRef = useRef<Canceler | void>()
