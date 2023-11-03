@@ -1,4 +1,6 @@
 const axios = require('axios');
+const {getNFTsOfOwner} = require('../../contracts/scripts/getTokensOfOwner')
+
 
 
 // Pour limiter le nombre des cartes à recevoir -> ajout du parametre pageSize
@@ -57,8 +59,30 @@ const getCardById = async (req, res) => {
     }
 };
 
+const getUserCards = async (req, res) => {
+    try {
+
+        getNFTsOfOwner();
+    
+    } catch (err) {
+        console.error('Erreur lors de la récupération des Cards', err); 
+        res.send(err)
+    }
+};
+
+// ----------         getNFTsOfOwner();
+// owneradress - adress UEr 
+// getNFTsOfOwner(owneradress) => ses NFTs dans des objets {{ tokenId: '1', tokenURI: 'http://localhost:3030/getCard/mcd19-3' },}
+
+// -----------           getOwners();
+// lise des users
+
+//---- à faire
+// Minter arbitrairement // je recois du front une liste[idCard] & adressUser ==> call function  mint.js n fois.
+
 module.exports = {
     getCards,
-    getCardById
+    getCardById,
+    getUserCards
 };
 

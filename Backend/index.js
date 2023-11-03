@@ -9,7 +9,7 @@ const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRou
 // Card Routes
 app.get('/getCards', getCards);
 app.get('/getCard/:id', getCardById); 
-// app.get('/getUserCards/:id', getUserCards);
+app.get('/getUserCards/', getUserCards);
 
 // Set Routes
 app.get('/getSets', getSets);
