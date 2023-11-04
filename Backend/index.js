@@ -10,7 +10,7 @@ const {getUsers,getUserNFTs} = require('./User/UserRoutes')
 app.use(cors());
 
 
-// Card RoutesCard
+// Card Routes
 app.get('/getCards', getCards);
 app.get('/getCard/:id', getCardById); 
 app.get('/getUserCards', getUserCards);
@@ -29,8 +29,7 @@ app.get('/getRarities', getRarities);
 
 // User Routes
 app.get('/getUsers', getUsers);
-app.get('/getUserNFTs', getUserNFTs);
-        //modif -> ajoute id à la route /getUserNFTs/:id
+app.get('/getUserNFTs/:id', getUserNFTs);
 
 
 

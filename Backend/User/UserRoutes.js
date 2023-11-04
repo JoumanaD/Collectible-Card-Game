@@ -44,10 +44,9 @@ const getUsers = async (req, res) => {
 
 
 //------------------------------------------ getUserNFTs
-const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
+// const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
 
-//modif -> je passe ownerAddress en param et je commente la ligne en dessus
-async function getNFTsOfOwner() {
+async function getNFTsOfOwner(ownerAddress) {
 
     const balance = await nftContract.balanceOf(ownerAddress); //Returns the number of tokens owned by the address
     let tokenIds = [];
@@ -67,12 +66,10 @@ const getUserNFTs = async (req, res) => {
     try {
         
         console.log("Get UserNFTs Route");
-        const id = req.params.id;
-        console.log("User ID : ",id);
+        const adress = req.params.id;
+        console.log("User ID : ",adress);
 
-        //modif -> je passe id(adress) en param de la function getNFTsOfOwner()
-
-        const userNFTs = getNFTsOfOwner();        
+        const userNFTs = getNFTsOfOwner(adress);        
         res.json(userNFTs);
 
     } catch (err) {
