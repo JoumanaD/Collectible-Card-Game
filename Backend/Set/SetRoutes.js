@@ -41,8 +41,20 @@ const getSetCards = async (req, res) => {
         console.log("--> ID of Set = ",id);
         const response = await axios.get('https://api.pokemontcg.io/v2/cards?q=set.id:'+id);
         const data = response.data;        
-        console.log("Cards of Set("+id+") : ",data);
-        res.json(data);
+
+        let REP= [{}];
+        REP = []; 
+        //Filtrer la reponse
+        data.data.forEach((card) => {
+            REP.push({
+                "id": card.id,
+                "number": card.number,
+                "image": card.images.large
+            })
+        });
+
+        console.log("Cards of Set("+id+") : ",REP);
+        res.json(REP);
 
     } catch (err) {
         console.error('Erreur lors de la récupération du getSetCards by id - ', err);

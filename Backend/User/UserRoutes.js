@@ -68,7 +68,7 @@ const getUserNFTs = async (req, res) => {
         console.log("Get UserNFTs Route");
         const adress = req.params.id;
         console.log("User ID : ",adress);
-
+        
         const userNFTs = getNFTsOfOwner(adress);        
         res.json(userNFTs);
 

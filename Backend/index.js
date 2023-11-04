@@ -38,13 +38,6 @@ var port = process.env.PORT || 3030 ;
 app.listen(port, console.log(`Server is listening on port ${port}`) )
 
 
-// (*********)----------         getNFTsOfOwner();
-// (*********)owneradress - adress UEr 
-// (*********)getNFTsOfOwner(owneradress) => ses NFTs dans des objets {{ tokenId: '1', tokenURI: 'http://localhost:3030/getCard/mcd19-3' },}
-
-// (*********)----------         getOwners();
-// (*********)lise des users 
-
 //---- à faire
 // Minter arbitrairement // je recois du front une liste[idCard] & adressUser ==> call function  mint.js n fois.
 
