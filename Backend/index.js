@@ -3,7 +3,7 @@ const cors = require('cors')
 const app = express();
 
 const {getCards,getCardById, getUserCards} = require('./Card/CardRoutes')
-const {getSets,getSetById} = require('./Set/SetRoutes')
+const {getSets,getSetById,getSetCards} = require('./Set/SetRoutes')
 const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRoutes')
 const {getUsers,getUserNFTs} = require('./User/UserRoutes')
 
@@ -18,6 +18,8 @@ app.get('/getUserCards', getUserCards);
 // Set Routes
 app.get('/getSets', getSets);
 app.get('/getSet/:id', getSetById);
+app.get('/getSetCards/:id', getSetCards);
+
 
 // Type Routes
 app.get('/getTypes', getTypes);
@@ -28,6 +30,7 @@ app.get('/getRarities', getRarities);
 // User Routes
 app.get('/getUsers', getUsers);
 app.get('/getUserNFTs', getUserNFTs);
+        //modif -> ajoute id à la route /getUserNFTs/:id
 
 
 
@@ -40,7 +43,7 @@ app.listen(port, console.log(`Server is listening on port ${port}`) )
 // (*********)owneradress - adress UEr 
 // (*********)getNFTsOfOwner(owneradress) => ses NFTs dans des objets {{ tokenId: '1', tokenURI: 'http://localhost:3030/getCard/mcd19-3' },}
 
-// (*********) -----------           getOwners();
+// (*********)----------         getOwners();
 // (*********)lise des users 
 
 //---- à faire
