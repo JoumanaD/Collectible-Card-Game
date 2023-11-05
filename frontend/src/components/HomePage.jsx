@@ -8,7 +8,6 @@ function HomePage() {
         <div className="home">
             <div className="overlay"></div>
             <h1 className="title">Welcome to Pokémon TCG</h1>
-            <SearchBar />
         </div>
     );
 }

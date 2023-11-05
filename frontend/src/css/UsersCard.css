@@ -10,7 +10,7 @@
   background-image: url('/src/photos/pokemon-background.jpg');
   background-size: cover; 
   background-attachment: fixed;
-  width: 20%;
+  width: 50%;
 }
 
 .card {

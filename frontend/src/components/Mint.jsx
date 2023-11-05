@@ -9,6 +9,7 @@ function Mint() {
     const [showSets, setShowSets] = useState(true);
     const [setId, setSetId] = useState();
     const [selectedCards, setCards] = useState([]);
+    const [adresse, setAdresse] = useState("");
 
     const mintCards = () => {
         async function getAccount() {
@@ -263,19 +264,22 @@ function Mint() {
             return await new window.web3.eth.Contract(abi, address);
         }
 
+        
+
         const mint = async () => {
             let accounts = await getAccount()
             await loadWeb3();
             window.contract = await loadContract();
-            console.log(setId, "0x875675345E7aaF3228EF68014C86c51121A74962", selectedCards)
-            console.log(accounts);
             for (let card of selectedCards) {
-                let result = window.contract.methods.mintCard(setId, "0x875675345E7aaF3228EF68014C86c51121A74962", card).send({ from: accounts[0] });
+                let result = window.contract.methods.mintCard(setId, adresse, card).send({ from: accounts[0] });
             }
         };
         mint();
         // Send Ethereum to an address
 
+    }
+    const handleValue = (event) => {
+        setAdresse(event.target.value);
     }
 
     const [users, setUsers] = useState([]);
@@ -296,13 +300,14 @@ function Mint() {
     return (
 
         <div className="pokemon-sets-div">
-            <select className="mint-input">
+            <select className="mint-input" onChange={handleValue}>
                 {users.map((user) => (
                     <option key={user} value={user}>
                     {user}
                     </option>
                 ))}
             </select>
+            <input type="text" onChange={handleValue}></input>
             {!showSets && <button onClick={() => { setShowSets(!showSets); setCards([]) }}>Back to sets</button>}
             {!showSets && <button onClick={() => mintCards()}
                 disabled={selectedCards.length === 0}  >Mint !</button>}
