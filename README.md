@@ -52,7 +52,7 @@ You’re good to go!
 ![Mint Cards Images](frontend/src/photos/mintCards.png)
 
 # Video
-> 
+> Click on the photo to see video
 [![Watch the video](frontend/src/photos/video.png)](https://drive.google.com/file/d/1eyYw4C16upWtF9KTXdKtYdfJhnVykZk8/view?pli=1)
 
 
