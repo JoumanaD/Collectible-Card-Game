@@ -32,7 +32,7 @@ const getUsers = async (req, res) => {
     try {
         
         console.log("Get USERS Route");
-        const users = getOwners();        
+        const users = await getOwners();
         res.json(users);
 
 
