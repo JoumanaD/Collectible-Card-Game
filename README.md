@@ -51,5 +51,8 @@ You’re good to go!
 > Mint Section.
 ![Mint Cards Images](frontend/src/photos/mintCards.png)
 
+# Video
+
+[![Watch the video](frontend/src/photos/mintCards.png)](https://drive.google.com/file/d/1eyYw4C16upWtF9KTXdKtYdfJhnVykZk8/view?pli=1)
 
 
