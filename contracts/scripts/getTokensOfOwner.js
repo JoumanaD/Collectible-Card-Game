@@ -26,6 +26,7 @@ const getNFTsOfOwner = async ()=> {
     }
   
     console.log(tokens);
+    return tokens;
 }
 
 

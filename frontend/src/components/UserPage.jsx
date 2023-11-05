@@ -15,7 +15,7 @@ function UserPage(){
         const fetchData = async () => {
           try {
             const response = await axios.get('http://localhost:3030/getUsers');
-            await setUsers(response.data.data);
+            await setUsers(response.data);
             console.log("Response : ", response.data); 
             console.log("Users :", users);
           } catch (error) {
