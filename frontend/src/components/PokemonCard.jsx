@@ -9,7 +9,7 @@ function PokemonCard({setId, minting}) {
   const [selectedCards, setSelectedCards] = useState([]);
 
   const location = useLocation()
-  if(!setId) {const { setId } = location.state}
+  if(!setId) { setId = location.state.setId}
   useEffect(() => {
     axios.get('http://localhost:3030/getSetCards/'+setId)
       .then(response => {
@@ -22,7 +22,6 @@ function PokemonCard({setId, minting}) {
   }, []);
   
   const selectCard = (cardId) => {
-    console.log("click", selectedCards)
     if(minting){
       if(selectedCards.includes(cardId)){
         let newArray = selectedCards.filter((id) => id!=cardId);
@@ -40,7 +39,7 @@ function PokemonCard({setId, minting}) {
       <h1>Pokemon Cards</h1>
       <ul className="pokemon-card-grid">
         {cards.map(card => (
-          <li key={card.id} style={{filter: selectedCards.includes(card.id)? "none":"grayscale(1)" }}
+          <li key={card.id} style={{filter: minting&&!selectedCards.includes(card.id)? "grayscale(1)":"none" }}
             className="pokemon-card animated" onClick={() => selectCard(card.id)}>
             <img src={card.image} alt={card.number} />
           </li>
