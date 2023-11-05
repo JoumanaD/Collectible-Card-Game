@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom'
 
-function PokemonCard({setId, minting}) {
+function PokemonCard({setId, minting, setCardsToMint}) {
 
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -26,9 +26,11 @@ function PokemonCard({setId, minting}) {
       if(selectedCards.includes(cardId)){
         let newArray = selectedCards.filter((id) => id!=cardId);
         setSelectedCards(newArray);
+        setCardsToMint(newArray);
       }else{
         let newArray = [...selectedCards,cardId];
         setSelectedCards(newArray);
+        setCardsToMint(newArray);
       }
     }
   }
