@@ -6,6 +6,8 @@ import HomePage from './components/HomePage'
 import PokemonCard from './components/PokemonCard'
 import UserPage from './components/UserPage'
 import NavBar from './components/NavBar'
+import './styles.css'; 
+import Sets from './components/Sets';
 
 const useAffect = (asyncEffect, dependencies = []) => {
   const cancelerRef = useRef();
@@ -48,8 +50,9 @@ export const App = () => {
     <NavBar />
       <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/pokemonCards" element={<PokemonCard />} />
+          <Route path="/pokemonCards/:setId" element={<PokemonCard />} />
           <Route path="/user" element={<UserPage />} />
+          <Route path="/sets" element={<Sets />} />
       </Routes>
     </>
     

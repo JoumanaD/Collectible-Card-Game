@@ -9,6 +9,10 @@ const {getUsers,getUserNFTs} = require('./User/UserRoutes')
 
 app.use(cors());
 
+app.use((req,res,next) => {
+    console.log(req.url);
+    next();
+});
 
 // Card Routes
 app.get('/getCards', getCards);

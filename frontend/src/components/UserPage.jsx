@@ -9,7 +9,7 @@ import '../styles.css';
 
 
 function UserPage(){
-    const [cards, setCards] = useState(usersList);
+    //const [cards, setCards] = useState(usersList);
 
     return (
         <Box sx={{ flexGrow: 1 }} className="boxBackground">

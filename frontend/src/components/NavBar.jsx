@@ -6,6 +6,7 @@ function NavBar() {
     <div className="navigation">
       <Link className="brand-name" to="/">Home</Link>
       <Link className="brand-name" to="/pokemonCards">Pokemon Cards</Link>
+      <Link className="brand-name" to="/sets">Sets</Link>
       <Link className="brand-name" to="/user">Profile</Link>
     </div>
   );

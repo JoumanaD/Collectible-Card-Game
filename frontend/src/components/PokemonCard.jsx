@@ -1,13 +1,16 @@
 import "../Card.css"
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useLocation } from 'react-router-dom'
 
 function PokemonCard() {
 
   const [cards, setCards] = useState([]);
-
+  const location = useLocation()
+  const { setId } = location.state
+  console.log(setId);
   useEffect(() => {
-    axios.get('http://localhost:3030/getCards')
+    axios.get('http://localhost:3030/getSetCards/'+setId)
       .then(response => {
         console.log(response)
         setCards(response.data);
