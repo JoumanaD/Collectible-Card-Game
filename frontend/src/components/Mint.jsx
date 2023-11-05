@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
 import Web3 from "web3";
 import Sets from "./Sets";
 import "../css/Mint.css"
@@ -257,7 +258,7 @@ function Mint() {
                     "stateMutability": "nonpayable",
                     "type": "function"
                 }
-            ] // your abi here
+            ] 
             let address = "0x5fbdb2315678afecb367f032d93f642f64180aa3"  // your contract address here
             return await new window.web3.eth.Contract(abi, address);
         }
@@ -295,11 +296,31 @@ function Mint() {
 
     }
 
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:3030/getUsers');
+            await setUsers(response.data);
+          } catch (error) {
+            console.error('Error while fetching users:', error);
+          }
+        };
+                
+        fetchData();
+    }, []);
 
     return (
 
         <div className="pokemon-sets-div">
-            <input type="text" className="mint-input" />
+            <select className="mint-input">
+                {users.map((user) => (
+                    <option key={user} value={user}>
+                    {user}
+                    </option>
+                ))}
+            </select>
             {!showSets && <button onClick={() => { setShowSets(!showSets); setCards([]) }}>Back to sets</button>}
             {!showSets && <button onClick={() => mintCards()}
                 disabled={selectedCards.length === 0}  >Mint !</button>}
