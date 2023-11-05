@@ -26,9 +26,9 @@ const getNFTsOfOwner = async ()=> {
     }
   
     console.log(tokens);
-  }
+}
 
-getNFTsOfOwner();
+
 
 module.exports = {
     getNFTsOfOwner

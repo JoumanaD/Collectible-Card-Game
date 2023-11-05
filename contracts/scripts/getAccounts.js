@@ -11,13 +11,14 @@ const contractABI = contract.abi; // Your contract's ABI
 const nftContract = new ethers.Contract(contractAddress, contractABI, wallet);
 
 // Mint a new NFT
-async function getOwners() {
+const getOwners = async () =>{
   
   const tx = await nftContract.getOwners();
   //await tx.wait(); // Wait for the transaction to be confirmed
   console.log(tx);
 }
 
-// Call the mint function
-getOwners();
+module.exports = {
+  getOwners
+};
 

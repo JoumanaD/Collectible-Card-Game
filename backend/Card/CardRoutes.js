@@ -59,26 +59,21 @@ const getCardById = async (req, res) => {
     }
 };
 
-const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
+// const ownerAddress = "0x875675345E7aaF3228EF68014C86c51121A74962";
 
-const getUserCards = async (req, res) => {
-    try {
-        console.log("LEOOO-DEBUT");
-        const nfts = await getNFTsOfOwner(ownerAddress); // Assuming getNFTsOfOwner is an async function
-
-        console.log("LEOOO- FUNCTION : "+ nfts);;
-        console.log("LEOOO-FIN");
+// const getUserCards = async (req, res) => {
+//     try {
+//         const nfts = await getNFTsOfOwner(ownerAddress); // Assuming getNFTsOfOwner is an async function
 
     
-    } catch (err) {
-        console.error('Erreur lors de la récupération des Cards', err); 
-        res.send(err)
-    }
-};
+//     } catch (err) {
+//         console.error('Erreur lors de la récupération des Cards', err); 
+//         res.send(err)
+//     }
+// };
 
 module.exports = {
     getCards,
-    getCardById,
-    getUserCards
+    getCardById
 };
 

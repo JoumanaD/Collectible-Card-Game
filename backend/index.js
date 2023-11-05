@@ -6,6 +6,8 @@ const {getCards,getCardById, getUserCards} = require('./Card/CardRoutes')
 const {getSets,getSetById,getSetCards} = require('./Set/SetRoutes')
 const {getTypes,getSubTypes,getSuperTypes,getRarities} = require('./Type/TypeRoutes')
 const {getUsers,getUserNFTs} = require('./User/UserRoutes')
+const {createCollection} = require('../contracts/scripts/createCollection')
+
 
 app.use(cors());
 
@@ -14,10 +16,14 @@ app.use((req,res,next) => {
     next();
 });
 
+// create collections in blockchain when server is loading
+createCollection();
+
+
 // Card Routes
 app.get('/getCards', getCards);
 app.get('/getCard/:id', getCardById); 
-app.get('/getUserCards', getUserCards);
+// app.get('/getUserCards', getUserCards);
 
 // Set Routes
 app.get('/getSets', getSets);

@@ -1,4 +1,5 @@
 const { ethers, JsonRpcProvider } = require('ethers');
+const axios = require('axios');
 
 // Connect to Ethereum network
 const provider = new JsonRpcProvider('http://localhost:8545');
@@ -10,13 +11,38 @@ const contract = require("../artifacts/src/Main.sol/Main.json");
 const contractABI = contract.abi; // Your contract's ABI
 const nftContract = new ethers.Contract(contractAddress, contractABI, wallet);
 
-// Mint a new NFT
-async function createCollection(name, cardCount) {
-  const tx = await nftContract.createCollection(name, cardCount);
-  await tx.wait(); // Wait for the transaction to be confirmed
-  console.log(tx);
+
+function millisToMinutesAndSeconds(millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
-// Call the mint function
-createCollection('TestCollec', 5);
 
+
+
+// Mint a new NFT
+const createCollection = async ()=> {
+
+  var date1 = new Date();
+
+  const response = await axios.get('https://api.pokemontcg.io/v2/sets');
+  const data = response.data;   
+  for(let i=0; i< data.data.length; i++){
+    const set = data.data[i];
+    console.log(set.id, set.name, set.total);
+    const tx = await nftContract.createCollection(set.id,set.name, set.total);
+    await tx.wait(); // Wait for the transaction to be confirmed
+    console.log(tx);
+    console.log(i)
+
+  }
+  var date2 = new Date();
+  var diff = date2 - date1; //milliseconds interval
+  console.log("Duration : ",millisToMinutesAndSeconds(diff));
+  
+}
+
+module.exports = {
+  createCollection
+};

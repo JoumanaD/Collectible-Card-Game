@@ -33,7 +33,7 @@ const getSetById = async (req, res) => {
 };
 
 
-// PAS ENCORE
+
 const getSetCards = async (req, res) => {
     try {
         const id = req.params.id;
