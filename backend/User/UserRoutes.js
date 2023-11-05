@@ -25,7 +25,7 @@ const getUserNFTs = async (req, res) => {
         const adress = req.params.id;
         console.log("User ID : ",adress);
         
-        const userNFTs = getNFTsOfOwner(adress);        
+        const userNFTs =  await getNFTsOfOwner(adress);  
         res.json(userNFTs);
 
     } catch (err) {
