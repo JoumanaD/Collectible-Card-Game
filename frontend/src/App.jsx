@@ -8,6 +8,7 @@ import UserPage from './components/UserPage'
 import NavBar from './components/NavBar'
 import './styles.css'; 
 import Sets from './components/Sets';
+import Mint from './components/Mint';
 
 const useAffect = (asyncEffect, dependencies = []) => {
   const cancelerRef = useRef();
@@ -53,6 +54,7 @@ export const App = () => {
           <Route path="/pokemonCards/:setId" element={<PokemonCard />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/sets" element={<Sets />} />
+          <Route path="/mint" element={<Mint />} />
       </Routes>
     </>
     

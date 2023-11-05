@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom'
 
-function PokemonCard() {
+function PokemonCard({setId, minting}) {
 
   const [cards, setCards] = useState([]);
+  const [selectedCards, setSelectedCards] = useState([]);
+
   const location = useLocation()
-  const { setId } = location.state
-  console.log(setId);
+  if(!setId) {const { setId } = location.state}
   useEffect(() => {
     axios.get('http://localhost:3030/getSetCards/'+setId)
       .then(response => {
@@ -19,7 +20,19 @@ function PokemonCard() {
         console.error('Error while fetching cards:', error);
       });
   }, []);
-
+  
+  const selectCard = (cardId) => {
+    console.log("click", selectedCards)
+    if(minting){
+      if(selectedCards.includes(cardId)){
+        let newArray = selectedCards.filter((id) => id!=cardId);
+        setSelectedCards(newArray);
+      }else{
+        let newArray = [...selectedCards,cardId];
+        setSelectedCards(newArray);
+      }
+    }
+  }
   
   return (
   
@@ -27,7 +40,8 @@ function PokemonCard() {
       <h1>Pokemon Cards</h1>
       <ul className="pokemon-card-grid">
         {cards.map(card => (
-          <li key={card.id} className="pokemon-card animated">
+          <li key={card.id} style={{filter: selectedCards.includes(card.id)? "none":"grayscale(1)" }}
+            className="pokemon-card animated" onClick={() => selectCard(card.id)}>
             <img src={card.image} alt={card.number} />
           </li>
         ))}

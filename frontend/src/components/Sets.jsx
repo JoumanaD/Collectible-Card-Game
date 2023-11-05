@@ -3,8 +3,7 @@ import "../Sets.css"
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-function Sets() {
-
+function Sets({preventNavigation, setSetId, setShowSets}) {
   const [sets, setSets] = useState([]);
 
   useEffect(() => {
@@ -17,6 +16,12 @@ function Sets() {
       });
   }, []);
 
+  const handleClick = (e, setId) => {
+    e.preventDefault(); // Prevents the default action
+    // Handle other logic you want to perform
+    setSetId(setId)
+    setShowSets(false)
+  };
   
   return (
   
@@ -24,7 +29,8 @@ function Sets() {
       <h1>Pokemon Card Sets</h1>
       <ul className="pokemon-sets-grid">
         {sets.map(set => (
-        <Link className="pokemon-sets-a" to={"/pokemonCards/"+set.id} state={{ setId: set.id }}>
+        <Link className="pokemon-sets-a" to={"/pokemonCards/"+set.id} state={{ setId: set.id }}
+          onClick={preventNavigation ? (e) => handleClick(e, set.id) : undefined}>
           <li key={set.id} className="pokemon-sets">
             <img src={set.images.logo} alt={set.name} />
             <h3>{set.name}</h3>

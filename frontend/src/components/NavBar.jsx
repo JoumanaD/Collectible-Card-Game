@@ -8,6 +8,7 @@ function NavBar() {
       <Link className="brand-name" to="/pokemonCards">Pokemon Cards</Link>
       <Link className="brand-name" to="/sets">Sets</Link>
       <Link className="brand-name" to="/user">Profile</Link>
+      <Link className="brand-name" to="/mint">Mint</Link>
     </div>
   );
 }
