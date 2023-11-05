@@ -8,6 +8,7 @@ import "hardhat/console.sol";
 contract Main is Ownable {
   int private count;
   mapping(int => Collection) private collections;
+  mapping(string => Collection) private collectionsById;
   address[] public owners;
   mapping(address => bool) ownerExists;
 
@@ -15,13 +16,14 @@ contract Main is Ownable {
     count = 0;
   }
 
-  function createCollection(string calldata name, int cardCount) external onlyOwner {
+  function createCollection(string calldata id, string calldata name, int cardCount) external onlyOwner {
     address initialOwner = address(this);
     collections[count++] = new Collection(initialOwner, name, cardCount);
+    collectionsById[id] = collections[count-1];
     console.log("Nouvelle collection:",address(collections[count-1]));
   }
 
-  function mintCard(int collectionId, address recipient, string memory tokenURI)
+  function mintCard(string calldata collectionId, address recipient, string memory tokenURI)
     external onlyOwner
     returns(uint256)
   {
@@ -29,7 +31,7 @@ contract Main is Ownable {
       owners.push(recipient);
       ownerExists[recipient] = true;
     }
-    uint256 tokenId = collections[collectionId].mintNFT(recipient, tokenURI);
+    uint256 tokenId = collectionsById[collectionId].mintNFT(recipient, tokenURI);
     return tokenId;
   }
 
