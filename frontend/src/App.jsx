@@ -6,7 +6,7 @@ import HomePage from './components/HomePage'
 import PokemonCard from './components/PokemonCard'
 import UserPage from './components/UserPage'
 import NavBar from './components/NavBar'
-import './styles.css'; 
+import './Styles.css'; 
 import Sets from './components/Sets';
 import Mint from './components/Mint';
 
