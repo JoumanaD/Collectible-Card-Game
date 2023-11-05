@@ -13,7 +13,6 @@ function PokemonCard({setId, minting, setCardsToMint}) {
   useEffect(() => {
     axios.get('http://localhost:3030/getSetCards/'+setId)
       .then(response => {
-        console.log(response)
         setCards(response.data);
       })
       .catch(error => {
