@@ -5,7 +5,7 @@ import * as main from '@/lib/main'
 import HomePage from './components/HomePage'
 import PokemonCard from './components/PokemonCard'
 import UserCards from './components/UserCards'
-import UsersPage from './components/UsersPage'
+import UserPage from './components/UserPage'
 import NavBar from './components/NavBar'
 import './css/Styles.css'; 
 import Sets from './components/Sets';
@@ -53,7 +53,7 @@ export const App = () => {
       <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pokemonCards/:setId" element={<PokemonCard />} />
-          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users" element={<UserPage />} />
           <Route path="/userCards/:userId" element={<UserCards />} />
           <Route path="/sets" element={<Sets />} />
           <Route path="/mint" element={<Mint />} />
