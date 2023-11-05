@@ -44,15 +44,12 @@ You’re good to go!
 
 ---
 # Photos of the application
+> Sets Image.
 ![Set Images](frontend/src/photos/sets.png)
+>  Set's Cards Image.
 ![Set Cards Images](frontend/src/photos/setsCards.png)
+> Mint Section.
 ![Mint Cards Images](frontend/src/photos/mintCards.png)
 
 
-> Implement at least one feature.
 
-- Improve the frontend, by adding a way to manage collection, like a binder.
-- Improve the contract, to be able to manage a multichain codebase, with a bridge between chains.
-- Add a game engine for the cards, like fighting with your Pokémon and some energy cards.
-- Implement a marketplace to exchange cards between users.
-- Implement a tournament game some promos cards for winners.
