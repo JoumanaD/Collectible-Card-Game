@@ -4,9 +4,10 @@ import * as ethereum from '@/lib/ethereum'
 import * as main from '@/lib/main'
 import HomePage from './components/HomePage'
 import PokemonCard from './components/PokemonCard'
-import UserPage from './components/UserPage'
+import UserCards from './components/UserCards'
+import UsersPage from './components/UsersPage'
 import NavBar from './components/NavBar'
-import './Styles.css'; 
+import './css/Styles.css'; 
 import Sets from './components/Sets';
 import Mint from './components/Mint';
 
@@ -52,7 +53,8 @@ export const App = () => {
       <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pokemonCards/:setId" element={<PokemonCard />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/userCards/:userId" element={<UserCards />} />
           <Route path="/sets" element={<Sets />} />
           <Route path="/mint" element={<Mint />} />
       </Routes>

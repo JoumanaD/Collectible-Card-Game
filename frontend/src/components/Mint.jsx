@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Sets from "./Sets";
-//import "../Mint.css"
+//import "../css/Mint.css"
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import PokemonCard from "./PokemonCard";
