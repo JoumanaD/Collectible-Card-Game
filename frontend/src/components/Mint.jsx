@@ -271,24 +271,6 @@ function Mint() {
             for (let card of selectedCards) {
                 let result = window.contract.methods.mintCard(setId, "0x875675345E7aaF3228EF68014C86c51121A74962", card).send({ from: accounts[0] });
             }
-            /* window.ethereum
-            .request({
-            method: 'eth_sendTransaction',
-            // The following sends an EIP-1559 transaction. Legacy transactions are also supported.
-            params: [
-                {
-                from: accounts[0], // The user's active address.
-                to: "0x5fbdb2315678afecb367f032d93f642f64180aa3", // Required except during contract publications.
-                value: "0" ,// Only required to send ether to the recipient from the initiating external account.
-                gasLimit: '0x5028', // Customizable by the user during MetaMask confirmation.
-                maxPriorityFeePerGas: '0x3b9aca00', // Customizable by the user during MetaMask confirmation.
-                maxFeePerGas: '0x2540be400', // Customizable by the user during MetaMask confirmation.
-                data: ""
-                },
-            ],
-            })
-            .then((txHash) => console.log(txHash))
-            .catch((error) => console.error(error)); */
         };
         mint();
         // Send Ethereum to an address
