@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Web3 from "web3";
 import Sets from "./Sets";
-import "../Mint.css"
+import "../css/Mint.css"
 import PokemonCard from "./PokemonCard";
 
 function Mint() {
@@ -271,7 +271,6 @@ function Mint() {
             for (let card of selectedCards) {
                 let result = window.contract.methods.mintCard(setId, "0x875675345E7aaF3228EF68014C86c51121A74962", card).send({ from: accounts[0] });
             }
-            console.log(result);
             /* window.ethereum
             .request({
             method: 'eth_sendTransaction',

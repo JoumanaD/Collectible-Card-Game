@@ -5,7 +5,6 @@ function NavBar() {
   return (
     <div className="navigation">
       <Link className="brand-name" to="/">Home</Link>
-      <Link className="brand-name" to="/pokemonCards">Pokemon Cards</Link>
       <Link className="brand-name" to="/sets">Sets</Link>
       <Link className="brand-name" to="/users">Profile</Link>
       <Link className="brand-name" to="/mint">Mint</Link>
