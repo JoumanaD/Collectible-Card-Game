@@ -15,7 +15,8 @@ const getOwners = async () =>{
   
   const tx = await nftContract.getOwners();
   //await tx.wait(); // Wait for the transaction to be confirmed
-  console.log(tx);
+  console.log("TX : ",tx);
+  return tx;
 }
 
 module.exports = {

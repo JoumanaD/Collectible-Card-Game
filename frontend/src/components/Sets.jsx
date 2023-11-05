@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../Sets.css"
+import "../css/Sets.css"
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -17,8 +17,7 @@ function Sets({preventNavigation, setSetId, setShowSets}) {
   }, []);
 
   const handleClick = (e, setId) => {
-    e.preventDefault(); // Prevents the default action
-    // Handle other logic you want to perform
+    e.preventDefault(); 
     setSetId(setId)
     setShowSets(false)
   };

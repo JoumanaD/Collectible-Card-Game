@@ -20,7 +20,6 @@ function millisToMinutesAndSeconds(millis) {
 
 
 
-
 // Mint a new NFT
 const createCollection = async ()=> {
 
@@ -28,7 +27,8 @@ const createCollection = async ()=> {
 
   const response = await axios.get('https://api.pokemontcg.io/v2/sets');
   const data = response.data;   
-  for(let i=0; i< data.data.length; i++){
+  for(let i=0; i< 20; i++){
+    //i< data.data.length
     const set = data.data[i];
     console.log(set.id, set.name, set.total);
     const tx = await nftContract.createCollection(set.id,set.name, set.total);
