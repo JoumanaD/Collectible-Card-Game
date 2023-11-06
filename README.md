@@ -32,17 +32,32 @@ Install the dependencies.
 # Yarn users
 yarn
 ```
-
-Run the complete project.
-
+You’re good to go!
+---
+# Run this commands to start the application 
+## Front-End
 ```bash
 # Yarn users
 yarn dev
 ```
 
-You’re good to go!
+## Back-End
+> go to backend folder 
+```bash
+cd backend
+node index.js
+```
 
+## Blockchain
+> go to script folder in contracts
+```bash
+cd contracts/scripts$ 
+node mint.js
+```
+
+Go to **http://localhost:8080/**
 ---
+
 # Photos of the application
 > Sets Image.
 ![Set Images](frontend/src/photos/sets.png)
