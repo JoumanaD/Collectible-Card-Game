@@ -6,8 +6,8 @@ of CCG cards as NFT, create a marketplace for players to exchange NFT, and run a
 
 by 
 
-- Joumana Eldakar
-- Léo Nguyen Tuong
+- Joumana ELDAKAR
+- Léo NGUYEN TUONG
 - Mohssine AIT BOUKDIR
 
 ---
