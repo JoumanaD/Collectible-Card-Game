@@ -33,6 +33,7 @@ Install the dependencies.
 yarn
 ```
 You’re good to go!
+
 ---
 # Run this commands to start the application 
 ## Front-End
